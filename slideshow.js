@@ -42,8 +42,8 @@
     let playSlideshow = setInterval(function () {
       mainImage.setAttribute("src", images[position + 1]);
       position++;
-      if (position >= images.length) {
-        position = 0;
+      if (position >= images.length - 1) {
+        position = -1;
       }
     }, 3000);
     document.getElementById("stop").addEventListener("click", () => {
