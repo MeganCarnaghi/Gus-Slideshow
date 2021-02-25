@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("images/shutterstock_123106615 (1).jpg");
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main__slideshow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 300px;
+  border: 20px solid #f1e2cf;
+  border-radius: 50%;
+}
+
+/* Styling for Bone Buttons */
+
+button {
+  width: 125px;
+  padding: 10px 0;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+#previous,
+#next {
+  background-color: #f1e2cf;
+  color: #322010;
+  margin: 0 20px;
+}
+
+#play,
+#stop {
+  margin: 20px 10px;
+  background-color: #c59a6c;
+}
