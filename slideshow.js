@@ -24,8 +24,8 @@
   document.getElementById("previous").addEventListener("click", () => {
     mainImage.setAttribute("src", images[position]);
     position--;
-    if (position <= 0) {
-      position = 0;
+    if (position < 0) {
+      position = images.length - 1;
     }
   });
 
@@ -33,8 +33,8 @@
   document.getElementById("next").addEventListener("click", () => {
     mainImage.setAttribute("src", images[position]);
     position++;
-    if (position >= images.length - 1) {
-      position = images.length - 1;
+    if (position > images.length - 1) {
+      position = 0;
     }
   });
 
