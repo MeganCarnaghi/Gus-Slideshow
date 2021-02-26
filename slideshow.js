@@ -19,35 +19,37 @@
 
   // Variable for the image position in the array
   let position = 0;
+  let interval = null;
+
+  function nextImage() {
+    if (position >= images.length - 1) {
+      position = -1;
+    }
+    mainImage.setAttribute("src", images[++position]);
+  }
 
   // Function for the Previous button
   document.getElementById("previous").addEventListener("click", () => {
-    mainImage.setAttribute("src", images[position]);
-    position--;
-    if (position < 0) {
-      position = images.length - 1;
+    if (position <= 0) {
+      position = images.length;
     }
+    mainImage.setAttribute("src", images[--position]);
   });
 
   // Function for the Next button
-  document.getElementById("next").addEventListener("click", () => {
-    mainImage.setAttribute("src", images[position]);
-    position++;
-    if (position > images.length - 1) {
-      position = 0;
-    }
-  });
+  document.getElementById("next").addEventListener("click", nextImage);
 
+  // Function for the Play button
   document.getElementById("play").addEventListener("click", () => {
-    let playSlideshow = setInterval(function () {
-      mainImage.setAttribute("src", images[position + 1]);
-      position++;
-      if (position >= images.length - 1) {
-        position = -1;
-      }
-    }, 3000);
-    document.getElementById("stop").addEventListener("click", () => {
-      clearInterval(playSlideshow);
-    });
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+      document.getElementById("play").innerHTML =
+        '<i class="fa fa-play"></i>&nbsp;PLAY';
+    } else {
+      interval = setInterval(nextImage, 2000);
+      document.getElementById("play").innerHTML =
+        '<i class="fa fa-stop"></i>&nbsp;STOP';
+    }
   });
 })();
